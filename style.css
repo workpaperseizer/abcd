@@ -27,3 +27,7 @@ body {
 .bottom-right {
     height: 90vh;
 }
+
+.top-left, .top-right, .bottom-left, .bottom-right {
+    transition: height 0.5s ease-in-out;
+}
