@@ -1,19 +1,25 @@
-console.log('UUUUUGH');
+console.log("Device Orientation Script Loaded");
 
 function handleOrientation(event) {
     let beta = event.beta; // Forward/backward tilt
 
-    let topDiv = document.querySelector(".top");
-    let bottomDiv = document.querySelector(".bottom");
+    let topLeft = document.querySelector(".top-left");
+    let topRight = document.querySelector(".top-right");
+    let bottomLeft = document.querySelector(".bottom-left");
+    let bottomRight = document.querySelector(".bottom-right");
 
     if (beta < -10) {
         // Tilted upwards
-        topDiv.style.height = "10vh";
-        bottomDiv.style.height = "90vh";
+        topLeft.style.height = "10vh";
+        topRight.style.height = "10vh";
+        bottomLeft.style.height = "90vh";
+        bottomRight.style.height = "90vh";
     } else if (beta > 10) {
         // Tilted downwards
-        topDiv.style.height = "80vh";
-        bottomDiv.style.height = "20vh";
+        topLeft.style.height = "90vh";
+        topRight.style.height = "90vh";
+        bottomLeft.style.height = "10vh";
+        bottomRight.style.height = "10vh";
     }
 }
 
@@ -24,6 +30,8 @@ function requestMotionPermission() {
             .then((permissionState) => {
                 if (permissionState === "granted") {
                     window.addEventListener("deviceorientation", handleOrientation);
+                } else {
+                    console.warn("DeviceOrientation permission denied");
                 }
             })
             .catch(console.error);
