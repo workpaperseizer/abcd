@@ -27,7 +27,7 @@ function handleOrientation(event) {
     right.style.flex = `${normalizedFlex}`;
 }
 
-// iOS에서 자동으로 권한 요청
+// Check for permission on iOS
 function requestMotionPermission() {
     if (typeof DeviceOrientationEvent.requestPermission === "function") {
         DeviceOrientationEvent.requestPermission()
@@ -40,7 +40,10 @@ function requestMotionPermission() {
             })
             .catch(console.error);
     } else {
-        // iOS가 아닐 때 바로 이벤트 등록
+        // Non-iOS devices
         window.addEventListener("deviceorientation", handleOrientation);
     }
 }
+
+// Request permission when user interacts
+document.addEventListener("click", requestMotionPermission);
