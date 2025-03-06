@@ -15,7 +15,7 @@ body {
     flex: 0;
 }
 
-/* .top-left {
+.top-left {
     height: 10vh;
 }
 .bottom-left {
@@ -26,74 +26,4 @@ body {
 }
 .bottom-right {
     height: 90vh;
-} */
-
-@keyframes heightChange {
-    0% {
-        height: 10vh;
-    }
-    50% {
-        height: 80vh;
-    }
-    100% {
-        height: 20vh;
-    }
-}
-
-@keyframes heightChangeReverse {
-    0% {
-        height: 90vh;
-    }
-    50% {
-        height: 20vh;
-    }
-    100% {
-        height: 80vh;
-    }
-}
-
-@keyframes flexChange {
-    0% {
-        flex: 10;
-    }
-    100% {
-        flex: 0;
-    }
-}
-
-@keyframes flexChangeReverse {
-    0% {
-        flex: 0;
-    }
-    100% {
-        flex: 10;
-    }
-}
-
-.top-left, .bottom-left, .top-right, .bottom-right {
-    animation-duration: 15s;
-    animation-fill-mode: forwards;
-}
-
-.top-left, .top-right {
-    animation-name: heightChange;
-}
-
-.bottom-left, .bottom-right {
-    animation-name: heightChangeReverse;
-}
-
-/* 전체 높이 애니메이션이 끝난 후 flex 변경 */
-.left, .right {
-    animation-delay: 15s;
-    animation-duration: 15s;
-    animation-fill-mode: forwards;
-}
-
-.left {
-    animation-name: flexChange;
-}
-
-.right {
-    animation-name: flexChangeReverse;
 }
